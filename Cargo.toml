@@ -1,0 +1,48 @@
+[package]
+name = "rs-fs-dfs-filenames2parents4ipc"
+version = "0.1.0"
+edition = "2024"
+
+exclude = [
+]
+
+[profile.release-wasi]
+inherits = "release"
+lto = true
+strip = true
+opt-level = 's'
+codegen-units = 1
+
+[[bin]]
+name = "dfs-filenames2parents4ipc"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "forbid"
+expect_used = "forbid"
+panic = "forbid"
+
+[dependencies.arrow-array]
+version = "60.0"
+default-features = false
+features = [
+]
+
+[dependencies.arrow-schema]
+version = "60.0"
+default-features = false
+features = [
+]
+
+[dependencies.arrow-ipc]
+version = "60.0"
+default-features = false
+features = [
+]
+
+[features]
+ipc-zstd = [
+  "arrow-ipc/zstd",
+]
